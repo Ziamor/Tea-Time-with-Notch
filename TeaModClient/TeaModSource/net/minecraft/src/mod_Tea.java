@@ -46,6 +46,12 @@ public class mod_Tea extends BaseMod {
 				'#', Block.glass, '$', Item.ingotIron, '%', Item.redstone  });
 		ModLoader.addRecipe(new ItemStack(camellia, 1), new Object[] { "#", "#",
 			'#', Block.dirt  });
+		ModLoader.addRecipe(new ItemStack(strBerryBush, 1), new Object[] { "#",
+			'#', Block.dirt  });
+		ModLoader.addRecipe(new ItemStack(mint, 1), new Object[] { "##", "#",
+			'#', Block.dirt  });
+		ModLoader.addRecipe(new ItemStack(chamomilla, 1), new Object[] { "###", "#",
+			'#', Block.dirt  });
 	}
 	
 	@Override
