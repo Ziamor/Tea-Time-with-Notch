@@ -3,12 +3,12 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="TeaModSource"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="C:/Users/Ziamor/Desktop/garbage/TeaMod/eclipse/TeaModClient/jars/jinput.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Ziamor/Desktop/garbage/TeaMod/eclipse/TeaModClient/jars/lwjgl.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Ziamor/Desktop/garbage/TeaMod/eclipse/TeaModClient/jars/lwjgl_util.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Ziamor/Desktop/garbage/TeaMod/eclipse/TeaModClient/jars/minecraft.jar">
+	<classpathentry kind="lib" path="C:/Users/Jakub/git/Tea-Time-with-Notch/TeaModClient/jars/jinput.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jakub/git/Tea-Time-with-Notch/TeaModClient/jars/lwjgl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jakub/git/Tea-Time-with-Notch/TeaModClient/jars/lwjgl_util.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jakub/git/Tea-Time-with-Notch/TeaModClient/jars/minecraft.jar">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/Ziamor/Desktop/garbage/TeaMod/eclipse/TeaModClient/jars/natives"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/Jakub/git/Tea-Time-with-Notch/TeaModClient/jars/natives"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
