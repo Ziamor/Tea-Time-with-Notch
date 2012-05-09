@@ -30,9 +30,6 @@ public class mod_Tea extends BaseMod {
 		ModLoader.registerBlock(camellia);
 		ModLoader.registerBlock(mint);
 		ModLoader.registerBlock(chamomilla);
-		/**
-		 * Texture
-		 */
 		
 		/**
 		 * Names
