@@ -5,7 +5,7 @@ import java.nio.file.WatchEvent.Modifier;
 
 import net.minecraft.src.forge.*;
 
-public class BlockDehydrator extends Block implements ITextureProvider {
+public class BlockDehydrator extends BlockContainer implements ITextureProvider {
 
 	protected BlockDehydrator(int i, int j) {
 		super(i, j, Material.rock);
@@ -113,12 +113,12 @@ public class BlockDehydrator extends Block implements ITextureProvider {
 
          if (tileentitydehydrator != null)
          {
-        	 ModLoader.getMinecraftInstance().displayGuiScreen(new GuiDehydrator(par5EntityPlayer.inventory,tileentitydehydrator));
+        	 ModLoader.openGUI(par5EntityPlayer,new GuiDehydrator(par5EntityPlayer.inventory,tileentitydehydrator));
          }
 
 
          return true;
-    }
+    }    
     
     /**
      * Called when the block is placed in the world.

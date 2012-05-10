@@ -11,7 +11,7 @@ public class mod_Tea extends BaseMod {
     public static final Block mint = (BlockFlower) (new BlockFlower(206, 18)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("mint");
     public static final Block chamomilla = (BlockFlower) (new BlockFlower(207, 19)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("matricaria chamomilla");
 	public static final Block dehydrator = new BlockDehydrator(180, 0).setHardness(2.0F).setResistance(5.0F).setBlockName("dehydrator"); 
-
+	public static final TileEntityDehydrator tileentitydehydrator = new TileEntityDehydrator();
 	public mod_Tea() {
 		
 	}
@@ -22,14 +22,20 @@ public class mod_Tea extends BaseMod {
 		 *Load textures 
 		 */
 		MinecraftForgeClient.preloadTexture("/TeaMod/terrain.png");
+		
 		/**
-		 * Register
+		 * Block register
 		 */
 		ModLoader.registerBlock(dehydrator);
 		ModLoader.registerBlock(strBerryBush);
 		ModLoader.registerBlock(camellia);
 		ModLoader.registerBlock(mint);
 		ModLoader.registerBlock(chamomilla);
+		
+		/**
+		 * Tile Entity register
+		 */
+		ModLoader.registerTileEntity(tileentitydehydrator.getClass(), "dehydrator");
 		
 		/**
 		 * Names
@@ -39,6 +45,7 @@ public class mod_Tea extends BaseMod {
 		ModLoader.addName(camellia, "Camellia Sinensis");
 		ModLoader.addName(mint, "Mintr");
 		ModLoader.addName(chamomilla, "Matricaria Chamomilla");
+		
 		/**
 		 * Crafting
 		 */
