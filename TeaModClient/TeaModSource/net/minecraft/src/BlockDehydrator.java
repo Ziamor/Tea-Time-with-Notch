@@ -7,6 +7,8 @@ import net.minecraft.src.forge.*;
 
 public class BlockDehydrator extends BlockContainer implements ITextureProvider {
 
+	private boolean isActive;
+
 	protected BlockDehydrator(int i, int j) {
 		super(i, j, Material.rock);
 	}
@@ -17,30 +19,10 @@ public class BlockDehydrator extends BlockContainer implements ITextureProvider 
 
 	/**
      * Returns the block texture based on the side being looked at.  Args: side
-     * 
-     * 0 = bottom, 1 = top, 2 = back, 3 = front, 4 = left, 5 = right
      */
     public int getBlockTextureFromSide(int par1)
     {
-        if (par1 == 1)	
-        {
-            return blockIndexInTexture + 2;
-        }
-
-        if (par1 == 0)	
-        {
-            return blockIndexInTexture + 3;
-        }
-
-        if (par1 == 2 || par1 == 4 || par1 == 5)
-        {
-            return blockIndexInTexture + 1;
-        }        
-
-        else
-        {
-            return blockIndexInTexture;
-        }
+    	return par1 == 1 ? this.blockIndexInTexture + 1 : (par1 == 0 ? this.blockIndexInTexture + 2 : (par1 == 3 ? this.blockIndexInTexture - 1 : this.blockIndexInTexture));
     }
     
     /**
@@ -49,7 +31,7 @@ public class BlockDehydrator extends BlockContainer implements ITextureProvider 
     public void onBlockAdded(World par1World, int par2, int par3, int par4)
     {
         super.onBlockAdded(par1World, par2, par3, par4);
-        setDefaultDirection(par1World, par2, par3, par4);
+        this.setDefaultDirection(par1World, par2, par3, par4);
     }
     
     /**
@@ -57,38 +39,36 @@ public class BlockDehydrator extends BlockContainer implements ITextureProvider 
      */
     private void setDefaultDirection(World par1World, int par2, int par3, int par4)
     {
-        if (par1World.isRemote)
+        if (!par1World.isRemote)
         {
-            return;
+            int var5 = par1World.getBlockId(par2, par3, par4 - 1);
+            int var6 = par1World.getBlockId(par2, par3, par4 + 1);
+            int var7 = par1World.getBlockId(par2 - 1, par3, par4);
+            int var8 = par1World.getBlockId(par2 + 1, par3, par4);
+            byte var9 = 3;
+
+            if (Block.opaqueCubeLookup[var5] && !Block.opaqueCubeLookup[var6])
+            {
+                var9 = 3;
+            }
+
+            if (Block.opaqueCubeLookup[var6] && !Block.opaqueCubeLookup[var5])
+            {
+                var9 = 2;
+            }
+
+            if (Block.opaqueCubeLookup[var7] && !Block.opaqueCubeLookup[var8])
+            {
+                var9 = 5;
+            }
+
+            if (Block.opaqueCubeLookup[var8] && !Block.opaqueCubeLookup[var7])
+            {
+                var9 = 4;
+            }
+
+            par1World.setBlockMetadataWithNotify(par2, par3, par4, var9);
         }
-
-        int i = par1World.getBlockId(par2, par3, par4 - 1);
-        int j = par1World.getBlockId(par2, par3, par4 + 1);
-        int k = par1World.getBlockId(par2 - 1, par3, par4);
-        int l = par1World.getBlockId(par2 + 1, par3, par4);
-        byte byte0 = 3;
-
-        if (Block.opaqueCubeLookup[i] && !Block.opaqueCubeLookup[j])
-        {
-            byte0 = 3;
-        }
-
-        if (Block.opaqueCubeLookup[j] && !Block.opaqueCubeLookup[i])
-        {
-            byte0 = 2;
-        }
-
-        if (Block.opaqueCubeLookup[k] && !Block.opaqueCubeLookup[l])
-        {
-            byte0 = 5;
-        }
-
-        if (Block.opaqueCubeLookup[l] && !Block.opaqueCubeLookup[k])
-        {
-            byte0 = 4;
-        }
-
-        par1World.setBlockMetadataWithNotify(par2, par3, par4, byte0);
     }
     /**
      * Returns the TileEntity used by this block.
@@ -119,7 +99,25 @@ public class BlockDehydrator extends BlockContainer implements ITextureProvider 
 
          return true;
     }    
-    
+    /**
+     * Retrieves the block texture to use based on the display side. Args: iBlockAccess, x, y, z, side
+     */
+    public int getBlockTexture(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+    {
+        if (par5 == 1)
+        {
+            return this.blockIndexInTexture + 1;
+        }
+        else if (par5 == 0)
+        {
+            return this.blockIndexInTexture + 2;
+        }
+        else
+        {
+            int var6 = par1IBlockAccess.getBlockMetadata(par2, par3, par4);
+            return par5 != var6 ? this.blockIndexInTexture : this.blockIndexInTexture - 1;
+        }
+    }
     /**
      * Called when the block is placed in the world.
      */

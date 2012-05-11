@@ -10,7 +10,7 @@ public class mod_Tea extends BaseMod {
     public static final Block camellia = (BlockFlower) (new BlockFlower(205, 17)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("camellia sinensis");
     public static final Block mint = (BlockFlower) (new BlockFlower(206, 18)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("mint");
     public static final Block chamomilla = (BlockFlower) (new BlockFlower(207, 19)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("matricaria chamomilla");
-	public static final Block dehydrator = new BlockDehydrator(180, 0).setHardness(2.0F).setResistance(5.0F).setBlockName("dehydrator"); 
+	public static final Block dehydrator = new BlockDehydrator(180, 1).setHardness(2.0F).setResistance(5.0F).setBlockName("dehydrator"); 
 	public static final TileEntityDehydrator tileentitydehydrator = new TileEntityDehydrator();
 	public mod_Tea() {
 		
