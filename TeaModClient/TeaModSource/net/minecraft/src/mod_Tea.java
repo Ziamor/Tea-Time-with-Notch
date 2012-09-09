@@ -6,10 +6,10 @@ public class mod_Tea extends BaseMod {
 	/**
      *Block.java 
      */
-	public static final Block strBerryBush = (BlockFlower) (new BlockFlower(204, 16)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("strawberry bush");
-    public static final Block camellia = (BlockFlower) (new BlockFlower(205, 17)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("camellia sinensis");
-    public static final Block mint = (BlockFlower) (new BlockFlower(206, 18)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("mint");
-    public static final Block chamomilla = (BlockFlower) (new BlockFlower(207, 19)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("matricaria chamomilla");
+	public static final Block strBerryBush = new StrBerryBush(204, 16,Material.plants).setHardness(0.0F).setResistance(5F).setStepSound(Block.soundGrassFootstep).setBlockName("strawberry bush");
+    public static final Block camellia = new Camellia(205, 17,Material.plants).setHardness(0.0F).setResistance(5F).setStepSound(Block.soundGrassFootstep).setBlockName("camellia sinensis");
+    public static final Block mint = new Mint(206, 18,Material.plants).setHardness(0.0F).setResistance(5F).setStepSound(Block.soundGrassFootstep).setBlockName("mint");
+    public static final Block chamomilla = new Chamomilla(207, 19,Material.plants).setHardness(0.0F).setResistance(5F).setStepSound(Block.soundGrassFootstep).setBlockName("mint");
 	public static final Block dehydrator = new BlockDehydrator(180, 1).setHardness(2.0F).setResistance(5.0F).setBlockName("dehydrator"); 
 	public static final TileEntityDehydrator tileentitydehydrator = new TileEntityDehydrator();
 	public mod_Tea() {
@@ -43,7 +43,7 @@ public class mod_Tea extends BaseMod {
 		ModLoader.addName(dehydrator, "Dehydrator");
 		ModLoader.addName(strBerryBush, "Straw Berry Bush");
 		ModLoader.addName(camellia, "Camellia Sinensis");
-		ModLoader.addName(mint, "Mintr");
+		ModLoader.addName(mint, "Mint");
 		ModLoader.addName(chamomilla, "Matricaria Chamomilla");
 		
 		/**
